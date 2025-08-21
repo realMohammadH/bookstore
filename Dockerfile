@@ -8,6 +8,7 @@ ENV PYTHONUNBUFFERED 1
 WORKDIR /code
 # Install dependencies
 COPY ./requirements.txt .
-RUN pip install --timeout 300 -r requirements.txt
+RUN pip install --upgrade pip wheel \
+    && pip install -r requirements.txt
 # Copy project
 COPY . .
